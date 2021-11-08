@@ -1,0 +1,42 @@
+version: 2 
+
+sources:
+  - name: source_a2mend_data_set
+    description: "Database Provided By MM Staging Database"
+    database: mm_dashboard_db
+    schema: mm_source_schema
+    tables:
+      - name: _airbyte_raw_users
+      - name: _airbyte_raw_user_descriptions_users
+      - name: _airbyte_raw_old_colleges
+      - name: _airbyte_raw_friendships
+
+  - name: public_a2mend_data_set
+    database: mm_dashboard_db
+    schema: public
+    tables:
+      - name: mm_users
+      - name: mm_activities
+      - name: mm_colleges
+      - name: mm_friends
+      - name: mm_mentees
+      - name: mm_mentee_contacts
+      - name: mm_mentors
+      - name: mm_mentor_contacts
+      - name: mm_mentor_by_degree_programs
+      - name: mm_old_colleges
+      - name: mm_user_contacts
+      - name: mm_description_users
+
+  - name: a2mend_data_set
+    description: ""
+    database: mm_dashboard_db
+    schema: a2mend_dashboard
+    tables:
+      - name: users_c5
+      - name: mentors_c5
+      - name: mentees_c5
+      - name: description_users_c5
+      - name: old_colleges_c5
+      - name: friends_c5
+      - name: activities_c5

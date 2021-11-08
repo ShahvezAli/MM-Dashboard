@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+  - name: staging_data_set
+    description: "Database Provided By MM Staging Database"
+    database: mm_dashboard_db
+    schema: mm_source_schema
+    tables:
+      - name: _airbyte_raw_users
+      - name: _airbyte_raw_user_descriptions_users
+      - name: _airbyte_raw_old_colleges
+      - name: _airbyte_raw_friendships
+      - name: _airbyte_raw_activities
+      - name: users
+
+  - name: dashboard_data_set
+    description: "Database Provided By MM Dashboard Database"
+    database: mm_dashboard_db
+    schema: public
+    tables:
+      - name: mm_users
+      - name: mm_mentors
+      - name: mm_mentees
+      - name: mm_old_colleges
+      - name: mm_friends
+      - name: mm_description_users
+models:
+    - name: mm_users
+      description: "dbt model for users"
+      columns:
+          - name: user_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+          - name: email
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null

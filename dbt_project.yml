@@ -1,0 +1,55 @@
+name: 'MM_DBT'
+version: '1.0.0'
+config-version: 2
+
+profile: 'mm-etl-postgres'
+
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+    - "target"
+    - "dbt_modules"
+
+
+models:
+  MM_DBT:
+      staging:
+          materialized: table
+      dashboard:
+          +schema: mentor_match_dashboard
+          materialized: table
+
+      mentor_match_community_college:
+          +schema: mentor_match_community_college_dashboard
+          materialized: table
+
+      sprint_community_college:
+          +schema: sprint_community_college_dashboard
+          materialized: table
+      mentor_community_college:
+          +schema: mentor_community_college_dashboard
+          materialized: table
+      laccd:
+          +schema: laccd_dashboard
+          materialized: table
+      a2mend:
+          +schema: a2mend_dashboard
+          materialized: table
+      headerlabs:
+          +schema: headerlabs_dashboard
+          materialized: table
+      antelope_valley_college:
+          +schema: antelope_valley_college_dashboard
+          materialized: table
+      college_of_alameda:
+          +schema: college_of_alameda_dashboard
+          materialized: table
+      everett_community_college:
+          +schema: everett_community_college_dashboard
+          materialized: table
