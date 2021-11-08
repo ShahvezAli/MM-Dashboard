@@ -11,6 +11,7 @@ sources:
       - name: _airbyte_raw_old_colleges
       - name: _airbyte_raw_friendships
       - name: _airbyte_raw_activities
+      - name: _airbyte_raw_colleges_mentees
       - name: users
 
   - name: dashboard_data_set
@@ -24,6 +25,8 @@ sources:
       - name: mm_old_colleges
       - name: mm_friends
       - name: mm_description_users
+      - name: mm_college_mentees
+
 models:
     - name: mm_users
       description: "dbt model for users"
